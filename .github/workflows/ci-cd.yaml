@@ -1,3 +1,13 @@
+name: Wisecow CI/CD
+
+on:
+  push:
+    branches:
+      - main   # run workflow when code is pushed to main
+  pull_request:
+    branches:
+      - main   # also run on PRs targeting main
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -15,7 +25,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # <-- Replace your old build step with this one -->
       - name: Build Docker image
         run: docker build -t bhavani2909/wisecow:latest ./wisecow
 
