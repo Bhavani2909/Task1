@@ -40,7 +40,7 @@ Deploy the Wisecow application as a Kubernetes application.
 ![Wisecow Browser][(Screenshots/CurlOutput.png](https://github.com/Bhavani2909/Task1/blob/main/Screenshots/1.%20CurlOutput.png))
 
 #### Local Host Output On Browser
-![K8s Deployment](Screenshots/k8s-deployment.png)
+https://github.com/Bhavani2909/Task1/blob/main/Screenshots/2.LocalHostOutput.png
 
 #### Output result on node port:
 ![GitHub Actions](Screenshots/ResultOnNodePort.png)
