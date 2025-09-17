@@ -34,7 +34,7 @@ Deploy the Wisecow application as a Kubernetes application.
 ### Screenshots
 
 #### GitHub Actions CI/CD Workflow
-![GitHub Actions](Screenshots/CICDWorkFlow.png)
+(https://github.com/Bhavani2909/Task1/blob/main/Screenshots/4.CICDWorkFlow.png)
 
 #### Curl Output in Ubuntu WSL terminal
 (https://github.com/Bhavani2909/Task1/blob/main/Screenshots/1.%20CurlOutput.png)
