@@ -1,28 +1,45 @@
-# Cow wisdom web server
+# Wisecow Kubernetes Deployment
 
-## Prerequisites
+## Cow Wisdom Web Server
 
-```
+### Prerequisites
+```bash
 sudo apt install fortune-mod cowsay -y
 ```
 
-## How to use?
+### How to Use
+```bash
+./wisecow.sh
+```
+Point your browser to the server port (default 4499).
 
-1. Run `./wisecow.sh`
-2. Point the browser to server port (default 4499)
+### What to Expect
+- Cow wisdom output using `cowsay` and `fortune-mod`.
 
-## What to expect?
-![wisecow](https://github.com/nyrahul/wisecow/assets/9133227/8d6bfde3-4a5a-480e-8d55-3fef60300d98)
+### Problem Statement
+Deploy the Wisecow application as a Kubernetes application.
 
-# Problem Statement
-Deploy the wisecow application as a k8s app
+### Requirements
+1. Create a Dockerfile for the application image.
+2. Create corresponding Kubernetes manifests (deployment, service, ingress) to deploy in a Kubernetes environment.
+3. The Wisecow service should be exposed as a Kubernetes service.
+4. Set up a GitHub Actions workflow to automatically build and push Docker images when changes are made to this repository.
+5. [Challenge goal]: Enable secure TLS communication for the Wisecow app.
 
-## Requirement
-1. Create Dockerfile for the image and corresponding k8s manifest to deploy in k8s env. The wisecow service should be exposed as k8s service.
-2. Github action for creating new image when changes are made to this repo
-3. [Challenge goal]: Enable secure TLS communication for the wisecow app.
+### Expected Artifacts
+- GitHub repo containing the app with Dockerfile, Kubernetes manifests, and any other necessary artifacts.
+- GitHub repo should have GitHub Actions workflow for CI/CD.
+- Repo should be private with access enabled for GitHub ID: `nyrahul`.
 
-## Expected Artifacts
-1. Github repo containing the app with corresponding dockerfile, k8s manifest, any other artifacts needed.
-2. Github repo with corresponding github action.
-3. Github repo should be kept private and the access should be enabled for following github IDs: nyrahul
+### Screenshots
+
+#### GitHub Actions CI/CD Workflow
+![GitHub Actions](screenshots/CICDWorkFlow.png)
+
+#### Curl Output in Ubuntu WSL terminal
+![Wisecow Browser](screenshots/CurlOutput.png)
+
+#### Local Host Output On Browser
+![K8s Deployment](screenshots/k8s-deployment.png)
+
+
