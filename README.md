@@ -43,4 +43,4 @@ Deploy the Wisecow application as a Kubernetes application.
 https://github.com/Bhavani2909/Task1/blob/main/Screenshots/2.LocalHostOutput.png
 
 #### Output result on node port:
-![GitHub Actions](Screenshots/ResultOnNodePort.png)
+(https://github.com/Bhavani2909/Task1/blob/main/Screenshots/3.ResultOnNodePort.png)
