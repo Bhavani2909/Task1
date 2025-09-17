@@ -37,7 +37,7 @@ Deploy the Wisecow application as a Kubernetes application.
 ![GitHub Actions](Screenshots/CICDWorkFlow.png)
 
 #### Curl Output in Ubuntu WSL terminal
-![Wisecow Browser](Screenshots/CurlOutput.png)
+![Wisecow Browser][(Screenshots/CurlOutput.png](https://github.com/Bhavani2909/Task1/blob/main/Screenshots/1.%20CurlOutput.png))
 
 #### Local Host Output On Browser
 ![K8s Deployment](Screenshots/k8s-deployment.png)
