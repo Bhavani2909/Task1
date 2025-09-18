@@ -1,60 +1,132 @@
-# Wisecow Project
+# Task 1 & 3: Wisecow Application - Kubernetes Deployment and Zero-Trust Policy
 
-## Task 1: Wisecow Deployment
-- Dockerfile: `wisecow/Dockerfile`
-- Kubernetes Manifests: `wisecow/k8s/wisecow-deployment.yaml`, `wisecow/k8s/wisecow-service.yaml`
-- Scripts: `wisecow/wisecow.sh`
-- Screenshots: `wisecow/screenshots/`
+## Overview
 
-## Task 3: KubeArmor Policy
-- Policy File: `wisecow/k8s/wisecow-policy.yaml`
-- Description: Enforces zero-trust rules for Wisecow app
+This repository contains the implementation of **Task 1 and Task 3**:
 
-### Prerequisites
-```bash
-sudo apt install fortune-mod cowsay -y
+- **Task 1:** Containerization and deployment of the [Wisecow application](https://github.com/nyrahul/wisecow) on a Kubernetes environment (Kind/Minikube) with automated CI/CD and TLS support.
+- **Task 3 (Optional/Challenge):** Application of a zero-trust KubeArmor policy to the deployed Kubernetes workload.
+
+---
+
+## Problem Statement 1: Containerization and Deployment
+
+**Objective:**  
+To containerize the Wisecow application and deploy it on Kubernetes with secure TLS communication, automated CI/CD, and accessibility as a service.
+
+### Implementation Details
+
+#### 1. Dockerization
+- A **Dockerfile** has been created to build the Wisecow application container image.
+- The image can be built locally or via the GitHub Actions workflow.
+
+#### 2. Kubernetes Deployment
+- Kubernetes manifest files include:
+  - **Deployment**: Deploys the Wisecow application pods.
+  - **Service**: Exposes the application within the cluster.
+  - **Ingress (Optional)**: Configured with TLS for secure communication.
+- TLS is implemented to ensure encrypted communication.
+
+#### 3. CI/CD Pipeline
+- **GitHub Actions** workflow automates:
+  - Docker image build and push to a container registry.
+  - Continuous deployment to the Kubernetes cluster after successful builds.
+- Workflow file: `.github/workflows/ci-cd.yml`
+
+### How to Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Bhavani2909/Task1-and-3.git
+   cd Task1-and-3
+   ```
+2. Build Docker image:
+   ```bash
+   docker build -t wisecow-app:latest .
+   ```
+3. Deploy to Kubernetes:
+   ```bash
+   kubectl apply -f k8s/
+   ```
+4. Access the application via the Kubernetes service or configured Ingress URL (with TLS).
+
+---
+
+## Problem Statement 3: Zero-Trust KubeArmor Policy
+
+**Objective:**  
+Implement a zero-trust security policy using [KubeArmor](https://docs.kubearmor.io/) for the Wisecow workload deployed in Task 1.
+
+### Implementation Steps
+1. Created a **KubeArmor policy YAML** to enforce zero-trust security controls.
+2. Applied the policy to the Kubernetes cluster:
+   ```bash
+   kubectl apply -f kubearmor-policy.yaml
+   ```
+
+### Artifacts
+- `kubearmor-policy.yaml`: The KubeArmor policy file.
+
+---
+
+## Repository Structure
+
 ```
-
-### How to Use
-```bash
-./wisecow.sh
+Task1-and-3/
+│
+├─ Dockerfile
+├─ k8s/
+│   ├─ deployment.yaml
+│   ├─ service.yaml
+│   ├─ ingress.yaml (optional)
+├─ .github/
+│   └─ workflows/
+│       └─ ci-cd.yml
+├─ kubearmor-policy.yaml
+└─ README.md
 ```
-Point your browser to the server port (default 4499).
+## 📷 Screenshots
 
-### What to Expect
-- Cow wisdom output using `cowsay` and `fortune-mod`.
+### Task-1 Curl Output
+![Curl Output](Screenshots/1.CurlOutput.png)
 
-### Problem Statement
-Deploy the Wisecow application as a Kubernetes application.
+### Task-1 LocalHostOutput
+![Local Host](Screenshots/2.LocalHostOutput.png)
 
-### Requirements
-1. Create a Dockerfile for the application image.
-2. Create corresponding Kubernetes manifests (deployment, service, ingress) to deploy in a Kubernetes environment.
-3. The Wisecow service should be exposed as a Kubernetes service.
-4. Set up a GitHub Actions workflow to automatically build and push Docker images when changes are made to this repository.
-5. [Challenge goal]: Enable secure TLS communication for the Wisecow app.
+### Task-1 ResultOnNodePort
+![Node Port](Screenshots/3.ResultOnNodePort.png)
 
-### Expected Artifacts
-- GitHub repo containing the app with Dockerfile, Kubernetes manifests, and any other necessary artifacts.
-- GitHub repo should have GitHub Actions workflow for CI/CD.
-- Repo should be private with access enabled for GitHub ID: `nyrahul`.
+### 📝 Task-1 CI/CD Workflow
+![CI/CD Workflow](Screenshots/4.CICDWorkFlow.png)
 
-### Service Policy
+### ⏰ Task-3 Pods Running
+![Pods Running](Screenshots/6.PodsRunning.png)
 
+### ⏰ Task-3 Policies Attached
+![Attached policy](Screenshots/7.PoliciesAttcached.png)
 
-### Screenshots
-https://github.com/Bhavani2909/Task1/blob/main/Screenshots/6.PodsRunning.png
-https://github.com/Bhavani2909/Task1/blob/main/Screenshots/7.PoliciesAttached.png
-https://github.com/Bhavani2909/Task1/blob/main/Screenshots/8.ServicePolicyDescription
+### ⏰ Task-3 ServicePolicyDescription
+![Service Policy Attached](Screenshots/8.ServicePolicyDescription.png)
+---
 
-#### GitHub Actions CI/CD Workflow
-(https://github.com/Bhavani2909/Task1/blob/main/Screenshots/4.CICDWorkFlow.png)
+## Tools & Technologies
+- **Docker** – Containerization
+- **Kubernetes (Kind/Minikube)** – Deployment environment
+- **GitHub Actions** – CI/CD automation
+- **TLS/Ingress** – Secure communication
+- **KubeArmor** – Zero-trust policy enforcement
 
-#### Curl Output in Ubuntu WSL terminal
-(https://github.com/Bhavani2909/Task1/blob/main/Screenshots/1.%20CurlOutput.png)
+---
 
-#### Local Host Output On Browser
-https://github.com/Bhavani2909/Task1/blob/main/Screenshots/2.LocalHostOutput.png
+## Conclusion
+This project demonstrates:
+- Containerization of the Wisecow application.
+- Deployment to a Kubernetes cluster with TLS.
+- CI/CD automation with GitHub Actions.
+- Implementation of zero-trust security policies using KubeArmor.
 
-#### Output result on node port:
-(https://github.com/Bhavani2909/Task1/blob/main/Screenshots/3.ResultOnNodePort.png)
+---
+
+## References
+- [Wisecow GitHub Repository](https://github.com/nyrahul/wisecow)  
+- [KubeArmor Documentation](https://docs.kubearmor.io/)
+
