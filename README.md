@@ -1,6 +1,14 @@
-# Wisecow Kubernetes Deployment
+# Wisecow Project
 
-## Cow Wisdom Web Server
+## Task 1: Wisecow Deployment
+- Dockerfile: `wisecow/Dockerfile`
+- Kubernetes Manifests: `wisecow/k8s/wisecow-deployment.yaml`, `wisecow/k8s/wisecow-service.yaml`
+- Scripts: `wisecow/wisecow.sh`
+- Screenshots: `wisecow/screenshots/`
+
+## Task 3: KubeArmor Policy
+- Policy File: `wisecow/k8s/wisecow-policy.yaml`
+- Description: Enforces zero-trust rules for Wisecow app
 
 ### Prerequisites
 ```bash
@@ -31,7 +39,13 @@ Deploy the Wisecow application as a Kubernetes application.
 - GitHub repo should have GitHub Actions workflow for CI/CD.
 - Repo should be private with access enabled for GitHub ID: `nyrahul`.
 
+### Service Policy
+
+
 ### Screenshots
+https://github.com/Bhavani2909/Task1/blob/main/Screenshots/6.PodsRunning.png
+https://github.com/Bhavani2909/Task1/blob/main/Screenshots/7.PoliciesAttached.png
+https://github.com/Bhavani2909/Task1/blob/main/Screenshots/8.ServicePolicyDescription
 
 #### GitHub Actions CI/CD Workflow
 (https://github.com/Bhavani2909/Task1/blob/main/Screenshots/4.CICDWorkFlow.png)
